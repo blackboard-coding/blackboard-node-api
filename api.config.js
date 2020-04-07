@@ -19,7 +19,13 @@ const OldMainMenuRoute = require('./routes/Category/Category/OldMainMenuRoute');
 const OldListAllCategoryRoute = require('./routes/Category/Category/OldListAllCategoryRoute');
 const CategoryTwoRoute = require('./routes/HomeMain/Home/CategoryTwoRoute');
 
-mongoose.connect('mongodb://admin_blackboard:UeE9p5EQsQzN9NzY@cluster0-shard-00-00-quvbp.mongodb.net:27017,cluster0-shard-00-01-quvbp.mongodb.net:27017,cluster0-shard-00-02-quvbp.mongodb.net:27017/blackboard?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority', { autoIndex: false });
+// const DatabaseCloud = "mongodb://admin_blackboard:UeE9p5EQsQzN9NzY@cluster0-shard-00-00-quvbp.mongodb.net:27017,cluster0-shard-00-01-quvbp.mongodb.net:27017,cluster0-shard-00-02-quvbp.mongodb.net:27017/blackboard?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"
+// const databaseClient = 'mongodb://127.0.0.1:27017/blackboard'
+// mongoose.connect(, { autoIndex: false });
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
 
 var db = mongoose.connection;
 module.exports = (app) => {
