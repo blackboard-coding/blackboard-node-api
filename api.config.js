@@ -18,7 +18,13 @@ const ListVideoInCategoryRoute = require('./routes/Category/Category/ListVideoIn
 const OldMainMenuRoute = require('./routes/Category/Category/OldMainMenuRoute');
 const OldListAllCategoryRoute = require('./routes/Category/Category/OldListAllCategoryRoute');
 const CategoryTwoRoute = require('./routes/HomeMain/Home/CategoryTwoRoute');
-
+const FavoriteProductRoute = require('./routes/PageProduct/Product/FavoriteProductRoute');
+const FollowOwnerRoute = require('./routes/PageProduct/Product/FollowOwnerRoute');
+const ListCommentRoute = require('./routes/PageProduct/Product/ListCommentRoute');
+const ListReportRoute = require('./routes/PageProduct/Product/ListReportRoute');
+const ProductInfoRoute = require('./routes/PageProduct/Product/ProductInfoRoute');
+const ReportProductRoute = require('./routes/PageProduct/Product/ReportProductRoute');
+const TermOfUseRoute = require('./routes/Others/Information/TermOfUseRoute');
 // const DatabaseCloud = "mongodb://admin_blackboard:UeE9p5EQsQzN9NzY@cluster0-shard-00-00-quvbp.mongodb.net:27017,cluster0-shard-00-01-quvbp.mongodb.net:27017,cluster0-shard-00-02-quvbp.mongodb.net:27017/blackboard?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"
 // const databaseClient = 'mongodb://127.0.0.1:27017/blackboard'
 // mongoose.connect(, { autoIndex: false });
@@ -66,6 +72,15 @@ module.exports = (app) => {
     app.use('/api', OldMainMenuRoute);
     app.use('/api', OldListAllCategoryRoute);
     app.use('/api', CategoryTwoRoute);
+
+    app.use('/api', FavoriteProductRoute);
+    app.use('/api', FollowOwnerRoute);
+    app.use('/api', ListCommentRoute);
+    app.use('/api', ListReportRoute);
+    app.use('/api', ProductInfoRoute);
+    app.use('/api', ReportProductRoute);
+
+    app.use('/api', TermOfUseRoute);
     // catch 404 and forward to error handler
     // app.use(function (req, res, next) {
     //   var err = new Error('File Not Found');
