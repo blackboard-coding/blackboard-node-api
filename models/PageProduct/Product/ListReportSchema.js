@@ -6,4 +6,4 @@ const ListReportSchema = new Schema({
     name: String
 })
 
-module.exports = mongoose.model('ListReport', ListReportSchema);
+module.exports = mongoose.model('ListReportOption', ListReportSchema);
