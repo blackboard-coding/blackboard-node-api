@@ -1,9 +1,10 @@
 const express = require('express');
 const bodyParser = require('body-parser');
-const mongoose = require('mongoose');
+// const mongoose = require('mongoose');
 const session = require('express-session');
-const MongoStore = require('connect-mongo')(session);
-
+// const MongoStore = require('connect-mongo')(session);
+const mysql = require('mysql');
+const MySQLStore = require('connect-mysql')(session)
 
 const UserProfileRoute = require('./routes/Account/Account/UserProfileRoute');
 const ShopRoute = require('./routes/Account/Shop/ShopRoute');
@@ -28,29 +29,41 @@ const TermOfUseRoute = require('./routes/Others/Information/TermOfUseRoute');
 // const DatabaseCloud = "mongodb://admin_blackboard:UeE9p5EQsQzN9NzY@cluster0-shard-00-00-quvbp.mongodb.net:27017,cluster0-shard-00-01-quvbp.mongodb.net:27017,cluster0-shard-00-02-quvbp.mongodb.net:27017/blackboard?ssl=true&replicaSet=Cluster0-shard-0&authSource=admin&retryWrites=true&w=majority"
 // const databaseClient = 'mongodb://127.0.0.1:27017/blackboard'
 // mongoose.connect(, { autoIndex: false });
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+// mongoose.connect(process.env.MONGODB_URI, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true
+// })
 
-var db = mongoose.connection;
+// var db = mongoose.connection;
+
+
+const connection = mysql.createConnection({
+    host: 'localhost',
+    user: 'me',
+    password: 'secret',
+    database: 'blackboard'
+});
+
+const db = connection.connect();
+
+
 module.exports = (app) => {
 
 
-    //handle mongo error
-    db.on('error', console.error.bind(console, 'connection error:'));
-    db.once('open', function () {
-        // we're connected!
-    });
+    // //handle mongo error
+    // db.on('error', console.error.bind(console, 'connection error:'));
+    // db.once('open', function () {
+    //     // we're connected!
+    // });
 
 
-    //use sessions for tracking logins
+    // use sessions for tracking logins
     app.use(session({
         secret: 'work hard',
         resave: true,
         saveUninitialized: false,
-        store: new MongoStore({
-            mongooseConnection: db
+        store: new MySQLStore({
+            config: db
         })
     }));
 
