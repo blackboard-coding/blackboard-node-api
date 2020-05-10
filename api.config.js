@@ -3,8 +3,8 @@ const bodyParser = require('body-parser');
 // const mongoose = require('mongoose');
 const session = require('express-session');
 // const MongoStore = require('connect-mongo')(session);
-const mysql = require('mysql');
-const MySQLStore = require('connect-mysql')(session)
+// const mysql = require('mysql');
+// const MySQLStore = require('connect-mysql')(session)
 
 const MainMenuCategorieRoute = require('./routes/Categorie/MainMenuCategorie/MainMenuCategorieRoute');
 
@@ -39,15 +39,6 @@ const MainMenuCategorieRoute = require('./routes/Categorie/MainMenuCategorie/Mai
 // var db = mongoose.connection;
 
 
-const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'me',
-    password: 'secret',
-    database: 'blackboard'
-});
-
-const db = connection.connect();
-
 
 module.exports = (app) => {
 
@@ -64,9 +55,9 @@ module.exports = (app) => {
         secret: 'work hard',
         resave: true,
         saveUninitialized: false,
-        store: new MySQLStore({
-            config: db
-        })
+        // store: new MySQLStore({
+        //     config: options
+        // })
     }));
 
     // parse incoming requests
