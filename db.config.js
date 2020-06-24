@@ -1,12 +1,12 @@
 
 const mysql = require("mysql");
-const dbConfig = require("../config/db.config.js");
+// const dbConfig = require("../config/db.config.js");
 
 const dbConfig = {
     HOST: "localhost",
-    USER: "root",
-    PASSWORD: "MjsfNIjOLFMQiVGy",
-    DB: "blackboard"
+    USER: "blackboard",
+    PASSWORD: "black@1q2w3e4r",
+    DB: "blackboard_base"
 };
 
 
