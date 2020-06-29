@@ -9,6 +9,14 @@ const dbConfig = {
     DB: "blackboard_base"
 };
 
+// const dbConfig = {
+//     HOST: "localhost",
+//     USER: "root",
+//     PASSWORD: "",
+//     DB: "blackboard_base"
+// };
+
+
 
 const connection = mysql.createPool({
     host: dbConfig.HOST,

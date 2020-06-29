@@ -54,17 +54,17 @@ LessonInfoSchema.findById = (LessonInfoId, result) => {
     });
 };
 
-LessonInfoSchema.findByNotAllowVideo = (result) => {
-    mysql.query(`SELECT * FROM lesson_infos WHERE status = 0`, (err, res) => {
+LessonInfoSchema.findByNotAllowVideo = (LessonInfoStatus, result) => {
+    mysql.query(`SELECT * FROM lesson_infos WHERE status = ${LessonInfoStatus}`, (err, res) => {
         if (err) {
             console.log("error: ", err);
             result(err, null);
             return;
         }
 
-        if (res.length) {
-            console.log("found lesson_infos: ", res[0]);
-            result(null, res[0]);
+        if (res) {
+            console.log("found lesson_infos: ", res);
+            result(null, res);
             return;
         }
 
@@ -72,6 +72,8 @@ LessonInfoSchema.findByNotAllowVideo = (result) => {
         result({ kind: "not_found" }, null);
     });
 };
+
+
 
 LessonInfoSchema.getAll = result => {
     mysql.query("SELECT * FROM lesson_infos", (err, res) => {
@@ -86,7 +88,7 @@ LessonInfoSchema.getAll = result => {
     });
 };
 
-LessonInfoSchema.updateByAllowVideo = (id, LessonInfo, result) => {
+LessonInfoSchema.updateByStatusVideo = (id, LessonInfo, result) => {
     mysql.query(
         "UPDATE lesson_infos SET status = ? WHERE id = ?",
         [

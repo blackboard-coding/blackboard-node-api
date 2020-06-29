@@ -7,7 +7,7 @@ const session = require('express-session');
 // const MySQLStore = require('connect-mysql')(session)
 
 const MainMenuCategorieRoute = require('./routes/Categorie/MainMenuCategorie/MainMenuCategorieRoute');
-
+const LessonInfoRoute = require('./routes/lesson_infos/LessonInfoRoute');
 // const UserProfileRoute = require('./routes/Account/Account/UserProfileRoute');
 // const ShopRoute = require('./routes/Account/Shop/ShopRoute');
 // const CertificationRoute = require('./routes/Account/Shop/CertificationRoute');
@@ -85,6 +85,7 @@ module.exports = (app) => {
     // app.use('/api', ListReportRoute);
     // app.use('/api', ProductInfoRoute);
     app.use('/api', MainMenuCategorieRoute);
+    app.use('/api', LessonInfoRoute);
 
     // app.use('/api', TermOfUseRoute);
     // catch 404 and forward to error handler
