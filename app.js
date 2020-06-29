@@ -33,7 +33,7 @@ var corsOptionsDelegate = function (req, callback) {
 
 
 // all environments
-app.set('port', process.env.PORT || 9180);
+app.set('port', 7379);
 app.set('views', __dirname + '/views');
 app.set('view engine', 'jsx');
 app.engine('jsx', reactViews.createEngine());
