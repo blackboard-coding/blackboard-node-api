@@ -7,7 +7,7 @@
   "author": "Nutthapat Piasangka <n.devs260340@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "start": "nodemon app.js",
+    "start_api": "nodemon app.js",
     "admin_api": "node app.js"
   },
   "dependencies": {
