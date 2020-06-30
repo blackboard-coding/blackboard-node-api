@@ -17,7 +17,14 @@ var reactViews = require('express-react-views');
 
 var app = express();
 
-var whitelist = ['http://localhost:3100', 'http://localhost:3101', 'http://localhost:3000', 'http://localhost:3001', 'https://www.blackboard-th.com']
+var whitelist = [
+  'http://localhost:3100',
+  'http://localhost:3101',
+  'http://localhost:3000',
+  'http://localhost:3001',
+  'https://www.blackboard-th.com',
+  'https://blackboard-backend-ui-react-9ie0murl6.vercel.app',
+]
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
   if (whitelist.indexOf(req.header('Origin')) !== -1) {
