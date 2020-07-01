@@ -23,7 +23,7 @@ var whitelist = [
   'http://localhost:3000',
   'http://localhost:3001',
   'https://www.blackboard-th.com',
-  'https://blackboard-backend-ui-react-9ie0murl6.vercel.app',
+  'https://blackboard-backend-ui-react.ndevs260340.vercel.app',
 ]
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
