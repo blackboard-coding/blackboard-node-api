@@ -26,6 +26,7 @@ var whitelist = [
   'https://www.blackboard-th.com',
   'https://classroom.blackboard-th.com',
   'https://blackboard-backend-ui-react.ndevs260340.vercel.app',
+  'https://manager.blackboard-th.com',
 ]
 var corsOptionsDelegate = function (req, callback) {
   var corsOptions;
